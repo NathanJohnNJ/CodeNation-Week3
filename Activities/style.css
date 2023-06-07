@@ -1,0 +1,28 @@
+.image{
+    max-width:50%;
+    display:none;
+}
+.main{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    justify-self:  center;
+    align-items: center;
+    align-self: center;
+}
+#btn{
+    display:block;
+}
+.still{
+    display:block;
+}
+.myStyle{
+    display:none;
+}
+.imgStyle{
+    display:flex;
+}
+.img2{
+    display:flex;
+}

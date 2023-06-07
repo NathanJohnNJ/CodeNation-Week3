@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+body{
+    text-align: center;
+    background-color: #a6a6a6;
+    color: #4c1ab2;
+    font-family: 'Tilt Prism', cursive;
+    font-size: 35px;
+}
+#btns{
+    position: relative;
+    display:flex;
+    justify-content: center;
+} 
+.button {
+    width:65px;
+    height: 55px;
+    font-size: 12px;
+    text-align: center;
+    text-justify: center;
+    /* margin-left: auto;
+    margin-right: auto; */
+    display: inline-block;
+    background-color: #4c1ab2;
+    border-color: black;
+    color: aliceblue;
+    border-radius: 50%;
+}
+.top{
+    display: inline-flex;
+}
+.first, .second, .third, .fourth{
+    width:220px;
+}
+.bottom{
+    display: inline-flex;
+}
+h2{
+    display:block;
+    font-size: 45px;
+    margin-bottom: -10px;
+}
+/* .first, .second, .third, .fourth{
+    margin-left: 10%;
+    margin-right: 10%;
+    display: block;
+    /* justify-content: space-evenly; */
+
+.parent{
+    position: relative;
+    text-align: center;
+    width: 500px;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.drummer{
+    width: 500px;
+    position: relative;
+    text-align: center;
+}
+.drumkit{
+    position: absolute;
+    width: 500px;
+    top:0;
+    left:0;
+    text-align:center;
+}
+.armsUp{
+    display: flex;
+}
+.floorTom{
+    display: flex;
+}
+.legs{
+    display:flex;
+}
+.kickDrum{
+    display: flex;
+}
+.snare{
+    display: flex;
+}
+.ride{
+    display: flex;
+}
+.hiHat{
+    display: flex;
+}
+.hitHiHat{
+    display:none
+}
+.hitSnare{
+    display:none
+}
+.clap{
+    display:none
+}
+.kick{
+    display:none
+}
+.tink{
+    display:none
+}
+.boom{
+    display:none
+}
+.hitTom{
+    display:none
+}
+.hitRide{
+    display:none
+}
+.nothing{
+    display:none
+}
+@media screen and (max-width: 1028px){
+    .first, .second, .third, .fourth{
+        display:inline-block;
+    };
+    .top, .bottom{
+        display: inline-block;
+    }
+    #btns{
+        display:block;
+    }
+}
+@media screen and (min-width: 800px){
+    .parent{
+        margin-left: 20%;
+    }
+}
+@media screen and (min-width: 950px){
+    .parent{
+        margin-left: 25%;
+    }
+}
+@media screen and (min-width: 1000px){
+    .parent{
+        margin-left: 30%;
+    }
+}
+@media screen and (min-width: 1150px){
+    .parent{
+        margin-left: 35%;
+    }
+}
+@media screen and (min-width: 1280px){
+    .parent{
+        margin-left: 38%;
+    }
+}

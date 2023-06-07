@@ -1,0 +1,28 @@
+const listItems = document.getElementsByTagName("li");
+const list = document.querySelector("ul")
+const header = document.getElementById("heading")
+
+listItems[0].style.color = "blue";
+listItems[1].style.color = "green";
+listItems[2].style.color = "red";
+listItems[3].style.color = "blue";
+
+for (let i = 0; i < listItems.length; i++){
+    // listItems[i].style.color = "blue";
+    // listItems[i].style.color = "green";
+    // listItems[i].style.color = "red";
+    // listItems[i].style.color = "blue";
+}
+header.textContent = "My Shopping List";
+listItems[2].textContent = "<b>Apples</b>";
+listItems[3].innerHTML = "<b>Apples</b>";
+list.style.backgroundColor = "yellow";
+listItems[1].style.display = "none";
+
+header.addEventListener("mouseover", () => {
+    header.textContent = header.textContent.toLocaleUpperCase();
+});
+
+header.addEventListener("mouseout", () => {
+    header.textContent = header.textContent.toLocaleLowerCase();
+});

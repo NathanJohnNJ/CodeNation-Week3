@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Interactive Drum Kit</title>
+</head>
+<body>
+    <audio id="boom">
+        <source src="sounds/boom.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="clap">
+        <source src="sounds/clap.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="hihat">
+        <source src="sounds/hihat.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="kick">
+        <source src="sounds/kick.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="openhat">
+        <source src="sounds/openhat.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="ride">
+        <source src="sounds/ride.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="snare">
+        <source src="sounds/snare.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="tink">
+        <source src="sounds/tink.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="tom">
+        <source src="sounds/tom.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <h1 id="title">Interactive Drumkit</h1>
+    <div id="btns">
+        <div class="top">
+            <div class="first">
+                <h2>Bass</h2>
+                <button class="button" id="boombtn">Boom<br>A</button>
+                <button class="button" id="kickbtn">Kick<br>B</button>
+            </div>
+            <div class="second">
+                <h2>Cymbals</h2>
+                <button class="button" id="hihatbtn">hiHat<br>C</button>
+                <button class="button" id="openhatbtn">openHat<br>D</button>
+                <button class="button" id="ridebtn">Ride<br>E</button>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="third">
+                <h2>Drums</h2>
+                <button class="button" id="snarebtn">Snare<br>F</button>
+                <button class="button" id="tombtn">Tom<br>G</button>
+            </div>
+            <div class="fourth">
+                <h2>Others</h2>
+                <button class="button" id="clapbtn">Clap<br>H</button>
+                <button class="button" id="tinkbtn">Tink<br>I</button>
+            </div>
+        </div>
+    </div>
+    <div class="parent">
+        <img src="images/drummer.PNG" alt="Drummer" class="drummer">
+        <img src="images/legs.PNG" alt="Drummers legs" class="drumkit legs" id="legsImg">
+        <img src="images/armsUp.PNG" alt="Drummers arms" class="drumkit armsUp" id="armsUp">
+        <img src="images/hiHat.PNG" alt="Hi Hat" class="drumkit hiHat" id="hiHat">
+        <img src="images/snare.PNG" alt="Snare" class="drumkit snare" id="snareImg">
+        <img src="images/tom.PNG" alt="Floor tom" class="drumkit floorTom" id="floorTom">
+        <img src="images/rightTom.PNG" alt="Right tom" class="drumkit">
+        <img src="images/leftTom.PNG" alt="Left tom" class="drumkit">
+        <img src="images/ride.PNG" alt="Ride" class="drumkit ride" id="rideImg">
+        <img src="images/bass.PNG" alt="Bass drum" class="drumkit kickDrum" id="kickDrum">
+        <img src="images/hitSnare.PNG" alt="Hit snare drum" class="drumkit hitSnare" id="hitSnare">
+        <img src="images/hitHiHat.PNG" alt="Hit hi hat" class="drumkit hitHiHat" id="hitHiHat">
+        <img src="images/hitRide.PNG" alt="Hit ride" class="drumkit hitRide" id="hitRide">
+        <img src="images/hitTom.PNG" alt="Hit floor tom" class="drumkit hitTom" id="hitTom">
+        <img src="images/clap.PNG" alt="Clap" class="drumkit clap" id="clapImg">
+        <img src="images/kick.PNG" alt="Kick" class="drumkit kick" id="kickImg">
+        <img src="images/boom.PNG" alt="Boom" class="drumkit boom" id="boomImg">
+        <img src="images/tink.PNG" alt="Tink" class="drumkit tink" id="tinkImg">
+        <img src="images/nothing.PNG" alt="That key does nothing." class="drumkit nothing" id="nothingImg">
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
