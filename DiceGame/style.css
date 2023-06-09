@@ -1,0 +1,38 @@
+body{
+    text-align: center;
+}
+.wallDiv{
+    display: none;
+    top: 30px;
+    right:0px;
+};
+#wall{
+    width: 100px;
+};
+footer{
+    display: none;
+}
+.rules{
+    display: none;
+}
+.xBtn{
+    display: block;
+}
+.dice{
+    display: none;
+}
+.diceImg{
+    display: none;
+}
+.welcome{
+    margin-top: 35%;
+    font-size: 25px;
+    transition: font-size 5s;
+    transition: margin-top 5s;
+}
+.title{
+    font-size: 20px;
+    transition: font-size 5s;
+    color: rgb(57, 123, 57);
+    text-shadow: 20px, 20px, 50px, black;
+}
