@@ -1,6 +1,11 @@
+// const timeOut = 5000;
+const timeOut = 5000;
+
 //opening/title
 const welcome = document.getElementById("welcome");
 const title = document.getElementById("title");
+const titleText = document.getElementById("splitTitle");
+const fullTitleText = document.getElementById("titleText");
 
 //scorecard
 const wallDiv = document.getElementById("wallDiv");
@@ -10,25 +15,9 @@ const wall = document.getElementById("wall");
 const bottle1 = document.getElementById("bottle1");
 const bottle2 = document.getElementById("bottle2");
 const bottle3 = document.getElementById("bottle3");
-const bottle4 = document.getElementById("bottle4");
-const bottle5 = document.getElementById("bottle5");
-const bottle6 = document.getElementById("bottle6");
-const bottle7 = document.getElementById("bottle7");
-const bottle8 = document.getElementById("bottle8");
-const bottle9 = document.getElementById("bottle9");
-const bottle10 = document.getElementById("bottle10");
-const bottle11 = document.getElementById("bottle11");
-const bottle12 = document.getElementById("bottle12");
-const bottle13 = document.getElementById("bottle13");
-const bottle14 = document.getElementById("bottle14");
-const bottle15 = document.getElementById("bottle15");
-const bottle16 = document.getElementById("bottle16");
-const bottle17 = document.getElementById("bottle17");
-const bottle18 = document.getElementById("bottle18");
-const bottle19 = document.getElementById("bottle19");
-const bottle20 = document.getElementById("bottle20");
 const broken = document.getElementById("broken");
-const bottles = [bottle1, bottle2, bottle3, bottle4, bottle5, bottle6, bottle7, bottle8, bottle9, bottle10, bottle11, bottle12, bottle13, bottle14, bottle15, bottle16, bottle17, bottle18, bottle19, bottle20];
+const bottles = [bottle1, bottle2, bottle3];
+const bottleText = document.getElementById("bottleText");
 
 //game variables
 const mainGame = document.getElementById("mainGame");
@@ -38,10 +27,10 @@ const resetBtn = document.getElementById("resetBtn");
 const playAgainBtn  = document.getElementById("playAgainBtn");
 const rulesBtn  = document.getElementById("rulesBtn");
 const xBtn  = document.getElementById("xBtn");
-const points = 0;
+let points = 0;
 
 //dice variables
-const dice  = document.getElementById("dice");
+const allDice  = document.getElementById("dice");
 const rolling = document.getElementById("rolling");
 const dice1 = document.getElementById("dice1");
 const dice2 = document.getElementById("dice2");
@@ -50,28 +39,51 @@ const dice4 = document.getElementById("dice4");
 const dice5 = document.getElementById("dice5");
 const dice6 = document.getElementById("dice6");
 
+const winnerOverlay = document.getElementById("winnerOverlay");
 //footer variables
+const footer = document.getElementById("footer")
 const playing = document.getElementById("playing");
 const portfolio = document.getElementById("portfolio");
 const thanks = document.getElementById("thanks");
 
+//Opening animation and game setup
+document.addEventListener("DOMContentLoaded", () => {
+    welcome.style.marginTop = "5%";
+    welcome.style.fontSize = "8px";
+    title.style.fontSize = "28px";
+    setTimeout(() => {initial()}, timeOut);
+});
+function initial(){
+    welcome.style.display = "none";
+    titleText.style.display = "none";
+    fullTitleText.style.display = "block";
+    wallDiv.style.display = "flex";
+    wall.style.display = "flex";
+    wall.style.position = "relative";
+    wall.style.right = "0";
+    footer.style.display = "block";
+    buttons.style.display = "flex";
+}
+
 //event listeners for buttons
 rollBtn.addEventListener("click", () => {
-    //activate gif to roll dice and land on random number
-    let num = Math.floor(Math.random() * 6 +1);;
+    rolling.style.display = "flex";
+    setTimeout(() => {rolling.style.display = "none"}, 3000);
+    let num = Math.floor(Math.random() * 6 +1);
     (num == 1)?rolled(dice1, 1):(num == 2)?rolled(dice2, 2):(num == 3)?rolled(dice3, 3):(num == 4)?rolled(dice4, 4):(num == 5)?rolled(dice5, 5):rolled(dice6, 6);
 });
-function rolled(dice, num){
-    dice.style.display = "block";
-    points = points + num
-    (points>=20)?bottle20.style.display = "inline":bottles[points].style.display = "inline";
-}
-resetBtn.addEventListener("click", () => {
-    //reset game to start without welcome screen
-});
+
+// resetBtn.addEventListener("click", () => {
+//     console.log("Reset button hit")
+//     points = 0;
+//     bottleText.innerHTML = `There are ${points} green bottles standing on the wall.`;
+//     console.log("Updated wall text");
+
+//     console.log("Removed bottles")
+
+// });
 playAgainBtn.addEventListener("click", () => {
-    //offer choice to play again or not
-    //restart game
+    location.reload();
 });
 rulesBtn.addEventListener("click", () => {
     rules.style.display = "block";
@@ -79,16 +91,58 @@ rulesBtn.addEventListener("click", () => {
 });
 xBtn.addEventListener("click", () =>{
     rules.style.display = "none";
-    rules.style.position = "inline";
 });
-// const buttons = document.getElementById("buttons");
-// const rollBtn = document.getElementById("rollBtn");
-// const resetBtn = document.getElementById("resetBtn");
-// const playAgainBtn  = document.getElementById("playAgainBtn");
 
-document.addEventListener("DOMContentLoaded", () => {
-    welcome.style.marginTop = "5%";
-    welcome.style.fontSize = "8px";
-    title.style.fontSize = "24px";
-    wallDiv.style.display = "flex"
-});
+//functions
+function rolled(dice, num){
+    if(num == 1){
+        console.log("rolled 1");
+        allDice.style.display = "block";
+        dice.style.display = "block";
+        points = 0;
+        broken.style.display = "flex";
+        setTimeout(() => {dice.style.display = "none"}, timeOut);
+    } else {
+        console.log(`rolled ${num}`);
+        allDice.style.display = "block";
+        dice.style.display = "block";
+        points = points + num;
+        console.log(points);
+        (points >= 20)?winner():addBottles(points);
+        setTimeout(() => {dice.style.display = "none"}, timeOut);
+    }
+    bottleText.innerHTML = `There are ${points} green bottles standing on the wall.`;
+    console.log("Updated wall text");
+}
+
+function addBottles(amount){
+    console.log("bottles func called");
+    for(let i = 0; i < amount; i++){
+        const bottle = new Image();
+        let num = Math.floor(Math.random() * 3 +1);
+        if(num == 1){
+            bottle.src = "./images/bottle1.PNG";
+            bottle.height = 80;
+        } else if(num == 2) {
+            bottle.src = "./images/bottle2.PNG";
+            bottle.height = 60;
+        } else {
+            bottle.src = "./images/bottle3.PNG";
+            bottle.height = 75;
+        };
+        var newBottle = wallDiv.appendChild(bottle);
+        newBottle.style.position = "absolute";
+        newBottle.style.right = "0";
+        let marg = 100 + i*20
+        newBottle.style.marginRight = `${marg}px`;
+        newBottle.style.marginTop = "10px";
+        console.log(`Bottle ${i} created.`)
+    }
+}
+function winner() {
+    rulesBtn.style.display = "none";
+    rollBtn.style.display = "none";
+    resetBtn.style.display = "none";
+    winnerOverlay.style.display = "block";
+    winnerOverlay.style.position = "absolute";
+}
